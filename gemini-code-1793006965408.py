@@ -91,7 +91,7 @@ def extract_and_generate_mcqs(
     end_page: int = 5
 ) -> DocumentExtractionAndQuiz:
     """
-    Processes images/PDF pages using Gemini 2.5 Flash to extract content 
+    Processes images/PDF pages using Gemini 3.8 Flash to extract content 
     (typed, scanned, or handwritten) and generate tiered MCQs.
     """
     # Initialize client (automatically picks up GEMINI_API_KEY from environment)
@@ -127,7 +127,7 @@ def extract_and_generate_mcqs(
 
     print("[*] Analyzing document content and generating MCQs via Gemini...")
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.8-flash",
         contents=contents,
         config=types.GenerateContentConfig(
             response_mime_type="application/json",
