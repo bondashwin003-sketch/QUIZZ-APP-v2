@@ -65,7 +65,7 @@ def process_uploaded_file(uploaded_file, start_page: int = 1, end_page: int = 5)
     return images
 
 # =====================================================================
-# 3. Call Gemini 2.5 Flash to Extract Text & Generate MCQs
+# 3. Call Gemini 3.8 Flash to Extract Text & Generate MCQs
 # =====================================================================
 
 def generate_quiz_from_images(
@@ -101,7 +101,7 @@ def generate_quiz_from_images(
     contents = images + [prompt]
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.8-flash",
         contents=contents,
         config=types.GenerateContentConfig(
             response_mime_type="application/json",
